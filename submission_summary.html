@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'submission.css' %}">
+
+<h2>Submission Summary</h2>
+
+<form method="get">
+    <label>Department:</label>
+    <select name="department">
+        <option value="">All Departments</option>
+        {% for d in departments %}
+            <option value="{{ d }}" {% if selected_department == d %}selected{% endif %}>
+                {{ d }}
+            </option>
+        {% endfor %}
+    </select>
+    <label>Year:</label>
+    <select name="year">
+        <option value="" {% if not selected_year %}selected{% endif %}>All Years</option>
+        <option value="1" {% if selected_year == "1" %}selected{% endif %}>First Year</option>
+        <option value="2" {% if selected_year == "2" %}selected{% endif %}>Second Year</option>
+        <option value="3" {% if selected_year == "3" %}selected{% endif %}>Third Year</option>
+    </select>
+    
+    <label>Subject:</label>
+    <select name="subject">
+        <option value="">All Subjects</option>
+        {% for sub in subjects %}
+            <option value="{{ sub }}" {% if selected_subject == sub %}selected{% endif %}>
+                {{ sub }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+</form>
+<h3 style="text-align:center; color:black;">
+    Total Students: {{ total_students }}
+</h3>
+<h3>Submitted Assignments</h3>
+<h3>Total Submitted: {{ total_submitted }}</h3>
+<table class="student-table">
+<tr>
+    <th>Reg No</th>
+    <th>Student</th>
+    <th>Assignment</th>
+    <th>Year</th>
+    <th>Semester</th>
+    <th>Marks</th>
+    <th>Remarks</th>
+</tr>
+{% for s in submitted %}
+<tr>
+    <td>{{ s.student.regno }}</td>
+    <td>{{ s.student.name }}</td>
+    <td>{{ s.assignment.title }}</td>
+    <td>{{ s.student.year }}</td>
+    <td>{{ s.student.semester }}</td>
+    <td>{{ s.marks|default:"-" }}</td>
+    <td>{{ s.remarks|default:"-" }}</td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7">No submitted assignments</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Unsubmitted Assignments</h3>
+<h3>Total Unsubmitted: {{ total_unsubmitted }}</h3>
+<table class="student-table">
+<tr>
+    <th>Reg No</th>
+    <th>Student</th>
+    <th>Assignment</th>
+    <th>Year</th>
+    <th>Semester</th>
+</tr>
+{% for u in unsubmitted %}
+<tr>
+    <td>{{ u.student.regno }}</td>
+    <td>{{ u.student.name }}</td>
+    <td>{{ u.assignment.title }}</td>
+    <td>{{ u.student.year }}</td>
+    <td>{{ u.student.semester }}</td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="5">All assignments submitted</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/teacher-dashboard/" class="back-btn">Back</a>
+
+{% endblock %}

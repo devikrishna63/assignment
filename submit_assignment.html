@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assignment.css' %}">
+</head>
+<h2>Submit Assignment</h2>
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+<input type="hidden" name="assignment_id" value="{{ assignment.id }}">
+
+<input type="file" name="file" required><br><br>
+
+<button type="submit">Upload</button>
+
+</form>
+
+{% endblock %}

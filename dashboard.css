@@ -1,0 +1,89 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6fb;
+}
+
+/* Dashboard content wrapper */
+.content {
+    text-align: center;
+    padding: 30px 20px; /* reduced from 60px top to 30px */
+}
+
+/* Dashboard paragraph box */
+.dash p {
+    background: #eef2ff;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 15px; /* reduced from 20px */
+    padding: 8px 12px; /* optional: add padding so it doesn't look cramped */
+}
+
+/* Heading */
+.content h2 {
+    font-size: 28px; /* slightly smaller */
+    margin-bottom: 8px; /* reduced spacing */
+    color: #1e3a8a;
+}
+
+/* Welcome text */
+.content p {
+    font-size: 16px; /* slightly smaller */
+    margin-bottom: 20px; /* reduced from 30px */
+}
+
+/* Links wrapper */
+.links-wrapper {
+    max-width: 400px;
+    margin: 0 auto 20px auto; /* reduced bottom margin */
+    background: white;
+    padding: 25px; /* reduced padding from 35px */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* slightly smaller shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* reduced spacing between links */
+}
+
+.links-wrapper a {
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 10px; /* reduced padding */
+    border-radius: 8px;
+    transition: 0.25s;
+    font-weight: 600;
+}
+
+.links-wrapper a:hover {
+    background: #1e40af;
+    transform: translateY(-2px); /* slightly smaller lift */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Logout button */
+.logout-btn {
+    display: inline-block;
+    background: #dc2626;
+    color: white;
+    padding: 8px 20px; /* reduced padding */
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 10px; /* small spacing above */
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    transform: scale(1.03); /* slightly smaller scale */
+}

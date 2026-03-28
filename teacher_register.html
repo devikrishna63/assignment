@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+
+
+<div class="register-container">
+    <div class="register-box">
+
+        <h2>Teacher Register</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Emp ID</label>
+            <input type="text" name="empid" required>
+
+            <label>Name</label>
+            <input type="text" name="name" required>
+
+            <label>Gender</label>
+            <select name="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label>Department</label>
+            <select name="department" required>
+                <option value="">Select Department</option>
+                <option value="Tamil">Tamil</option>
+                <option value="English">English</option>
+                <option value="Commerce">Commerce</option>
+                <option value="History">History</option>
+                <option value="Economics">Economics</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Maths">Maths</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Zoology">Zoology</option>
+                <option value="Botany">Botany</option>
+                <option value="BCA">BCA</option>
+            </select>
+
+            <label>Phone No</label>
+            <input type="text" name="phone" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Address</label>
+            <textarea name="address"></textarea>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="back-link">
+            <a href="/teacher-login/">Back to Login</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

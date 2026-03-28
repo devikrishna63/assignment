@@ -1,0 +1,121 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+</head>
+<div class="profile-card">
+<h2>👤 Welcome to Profile</h2>
+<p>Reg No : {{ student.regno }}</p>
+<p>Name : {{ student.name }}</p>
+<p>Gender : {{ student.gender }}</p>
+<p>Department : {{ student.department }}</p>
+<p>Year : {{ student.year }}</p>
+<p>Semester : {{student.semester}}</p>
+<p>Email : {{ student.email }}</p>
+<p>Phone : {{ student.phone }}</p>
+<p>Address : {{ student.address }}</p>
+{% if success %}
+<p class="success-msg">Profile Updated Successfully</p>
+{% endif %}
+
+{% if err %}
+<p class="error-msg">{{ err }}</p>
+{% endif %}
+
+<hr>
+
+{% if not edit and not pwd %}
+<a href="/student-profile/?edit=1">Edit Profile</a>
+{% endif %}
+
+{% if edit %}
+
+<form method="POST">
+{% csrf_token %}
+<label>Name</label>
+<input name="name" value="{{ student.name }}"><br>
+
+<label>Gender</label>
+<select name="gender">
+    <option value="">Select Gender</option>
+<option value="Male" {% if student.gender == "Male" %}selected{% endif %}>Male</option>
+<option value="Female" {% if student.gender == "Female" %}selected{% endif %}>Female</option>
+</select><br>
+
+<label>Department</label>
+<select name="department">
+    <option value="">Select Department</option>
+    <option value="Tamil" {% if student.department == "Tamil" %}selected{% endif %}>Tamil</option>
+    <option value="English" {% if student.department == "English" %}selected{% endif %}>English</option>
+    <option value="Commerce" {% if student.department == "Commerce" %}selected{% endif %}>Commerce</option>
+    <option value="History" {% if student.department == "History" %}selected{% endif %}>History</option>
+    <option value="Economics" {% if student.department == "Economics" %}selected{% endif %}>Economics</option>
+    <option value="Computer Science" {% if student.department == "Computer Science" %}selected{% endif %}>Computer Science</option>
+    <option value="Maths" {% if student.department == "Maths" %}selected{% endif %}>Maths</option>
+    <option value="Physics" {% if student.department == "Physics" %}selected{% endif %}>Physics</option>
+    <option value="Chemistry" {% if student.department == "Chemistry" %}selected{% endif %}>Chemistry</option>
+    <option value="Zoology" {% if student.department == "Zoology" %}selected{% endif %}>Zoology</option>
+    <option value="Botany" {% if student.department == "Botany" %}selected{% endif %}>Botany</option>
+    <option value="BCA" {% if student.department == "BCA" %}selected{% endif %}>BCA</option>
+</select><br>
+<label>Year</label><br><br>
+<select name="year" required>
+    <option value="">Select year</option>
+    <option value=""{% if student.year == "" %}selected{% endif %}>Select Year</option>
+    <option value="1"{% if student.year == "1" %}selected{% endif %}>First Year</option>
+    <option value="2"{% if student.year == "2" %}selected{% endif %}>Second Year</option>
+    <option value="3"{% if student.year == "3" %}selected{% endif %}>Third Year</option>
+</select><br><br>
+<label>Semester</label>
+<select name="semester">
+    <option value="">Select Sem</option>
+    <option value="Semester 1" {% if student.semester == "Semester 1" %}selected{% endif %}>Semester 1</option>
+    <option value="Semester 2" {% if student.semester == "Semester 2" %}selected{% endif %}>Semester 2</option>
+    <option value="Semester 3" {% if student.semester == "Semester 3" %}selected{% endif %}>Semester 3</option>
+    <option value="Semester 4" {% if student.semester == "Semester 4" %}selected{% endif %}>Semester 4</option>
+    <option value="Semester 5" {% if student.semester == "Semester 5" %}selected{% endif %}>Semester 5</option>
+    <option value="Semester 6" {% if student.semester == "Semester 6" %}selected{% endif %}>Semester 6</option>
+</select><br>
+
+<label>Phone no</label>
+<input name="phone" value="{{ student.phone }}"><br>
+
+<label>Email</label>
+<input name="email" value="{{ student.email }}"><br>
+
+<label>Address</label>
+
+<textarea name="address">{{ student.address }}</textarea><br>
+
+<button>Save Profile</button>
+
+</form>
+
+<br>
+<a href="/student-profile/?pwd=1">Change Password</a>
+
+{% endif %}
+
+{% if pwd %}
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="password" name="oldpass" placeholder="Old password"><br>
+<input type="password" name="newpass" placeholder="New password"><br>
+<input type="password" name="confirmpass" placeholder="Confirm"><br>
+
+<button name="change_password">Change Password</button>
+
+</form>
+
+{% endif %}
+
+<br>
+<a href="/student-dashboard/" class="back-btn">Back to Dashboard</a>
+</div>
+
+{% endblock %}

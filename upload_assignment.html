@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'assignment.css' %}">
+
+<h2>Add Assignment</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-msg">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+<label>Department</label><br><br>
+<select name="department" required>
+    <option value="">Select Department </option>
+    <option value="Tamil">Tamil</option>
+    <option value="English">English</option>
+    <option value="Commerce">Commerce</option>
+    <option value="History">History</option>
+    <option value="Economics">Economics</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Maths">Maths</option>
+    <option value="Physics">Physics</option>
+    <option value="Chemistry">Chemistry</option>
+    <option value="Zoology">Zoology</option>
+    <option value="Botany">Botany</option>
+    <option value="BCA">BCA</option>
+</select><br><br>
+
+<label>Year</label><br><br>
+<select name="year" required>
+    <option value="">Select Year</option>
+    <option value="1">First Year</option>
+    <option value="2">Second Year</option>
+    <option value="3">Third Year</option>
+</select><br><br>
+<label>Semester</label><br><br>
+<select name="semester" required>
+    <option value="">Select Sem</option>
+    <option value="Semester 1">Semester 1</option>
+    <option value="Semester 2">Semester 2</option>
+    <option value="Semester 3">Semester 3</option>
+    <option value="Semester 4">Semester 4</option>
+    <option value="Semester 5">Semester 5</option>
+    <option value="Semester 6">Semester 6</option>
+</select><br><br>
+<label>Title</label><br><br>
+<input name="title" placeholder="Title" required><br><br>
+<label>Description</label><br><br>
+<textarea name="description" placeholder="Description" required></textarea><br><br>
+<label>Upload File</label><br><br>
+<input type="file" name="file" ><br><br>
+<label>Start Date:</label><br><br>
+<input type="date" name="start_date" required><br><br>
+<label>End Date:</label>
+<input type="date" name="end_date" required><br><br>
+
+<button>Add Assignment</button>
+
+</form>
+<br>
+<a href="/teacher-dashboard/" class="back-btn">Back </a>
+{% endblock %}

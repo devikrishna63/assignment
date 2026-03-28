@@ -1,0 +1,250 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6fb;
+}
+
+/* ================= MAIN CONTENT ================= */
+.content {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* HEADINGS */
+h3 {
+    color: #1e3a8a;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+h2 {
+    text-align: center;
+    margin: 10px 0 20px;
+    color: #111827;
+}
+
+.section-title {
+    margin: 30px 0 15px;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* ================= TOTAL BOX ================= */
+.total-count {
+    background: #eef2ff;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* ================= GRID ================= */
+.submitted-grid,
+.unsubmitted-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ================= CARD ================= */
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h4 {
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.card p {
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.card a {
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* ================= DEADLINE ================= */
+.deadline-over {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* DEADLINE PAGE BOX */
+.deadline-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.deadline-box h2 {
+    color: #dc2626;
+}
+
+.deadline-box p {
+    margin: 10px 0;
+    color: #374151;
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+.success-msg {
+    background: #dcfce7;
+    color: #166534;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* ================= FILTER ================= */
+.filter-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-box select {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filter-box button {
+    padding: 6px 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-box button:hover {
+    background: #1e40af;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* ================= TABLE ================= */
+.student-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.student-table th {
+    background: #1e3a8a;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.student-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+}
+
+.student-table tr:hover {
+    background: #f1f5f9;
+}
+
+/* ================= BUTTON ================= */
+.back-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.back-btn:hover {
+    background: #1e40af;
+}
+
+/* ================= MARK PAGE ================= */
+.mark-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 20px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.mark-container form input,
+.mark-container form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.mark-container form button {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.mark-container form button:hover {
+    background: #15803d;
+}
+.submit-btn {
+    margin-top: 8px;
+}
+
+.submit-btn a {
+    display: inline-block;
+}

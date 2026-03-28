@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'help.css' %}">
+<div class="container mt-5 mb-5">
+
+    <h2 class="text-center mb-4">📘 Help & User Guide</h2>
+    <hr>
+
+    <!-- STUDENT SECTION -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h4 class="text-primary">👨‍🎓 Student Guide</h4>
+            <ul>
+                <li>Register using your Register Number and personal details</li>
+                <li>Login using Register Number and Password</li>
+                <li>Go to Dashboard to view your profile</li>
+                <li>Click " My Assignments" to see available assignments</li>
+                <li>Upload your assignment file before deadline</li>
+                <li>You can submit each assignment only once</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TEACHER SECTION -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h4 class="text-success">👩‍🏫 Teacher Guide</h4>
+            <ul>
+                <li>Login using Employee ID and Password</li>
+                <li>Upload assignments with title, description, and deadline</li>
+                <li>Select department, year, and semester properly</li>
+                <li>View student submissions</li>
+                <li>Check assignments and give marks & remarks</li>
+                <li>Track submitted and unsubmitted students</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- IMPORTANT NOTES -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h4 class="text-warning">⚠ Important Notes</h4>
+            <ul>
+                <li>Assignments cannot be submitted after deadline</li>
+                <li>File upload is mandatory for submission</li>
+                <li>Each assignment can be submitted only once</li>
+                <li>Provide correct details during registration</li>
+                <li>Keep your login credentials secure</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <h4 class="text-dark">📞 Contact Support</h4>
+            <p>Email: assignmentmanager@gmail.com</p>
+            <p>Phone: +91 9876543210</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

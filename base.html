@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>College Assignment Management</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="wrapper"> 
+<header class="header">
+   <div class="logo">
+        🎓 College Assignmate
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/student-login/">Student</a>
+        <a href="/teacher-login/">Teacher</a>
+        <a href="/admin/">Admin</a>
+        <a href="/help/">Help</a>
+    </nav>
+</header>
+
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer class="footer">
+    <p>© 2026 College Assignmate | Developed by Devi 💻</p>
+</footer>
+</div> 
+</body>
+</html>

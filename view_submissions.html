@@ -1,0 +1,156 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'app.css' %}">
+<h2>Checked/Unchecked Summary</h2>
+<form method="get">
+    <label>Department:</label>
+    <select name="department">
+        <option value="">All Departments</option>
+        {% for d in departments %}
+            <option value="{{ d }}" {% if selected_department == d %}selected{% endif %}>
+                {{ d }}
+            </option>
+        {% endfor %}
+    </select>
+<label>Year:</label>
+<select name="year">
+    <option value="">All Years</option>
+    <option value="1" {% if selected_year == "1" %}selected{% endif %}>First Year</option>
+    <option value="2" {% if selected_year == "2" %}selected{% endif %}>Second Year</option>
+    <option value="3" {% if selected_year == "3" %}selected{% endif %}>Third Year</option>
+</select>
+ <label>Subject:</label>
+    <select name="subject">
+        <option value="">All Subjects</option>
+        {% for sub in subjects %}
+            <option value="{{ sub }}" {% if selected_subject == sub %}selected{% endif %}>
+                {{ sub }}
+            </option>
+        {% endfor %}
+    </select>
+
+<button>Filter</button>
+</form>
+<h3 style="text-align:center; color:black;">
+    Total Students: {{ total_students }}
+</h3>
+<h3>Checked Assignments</h3>
+<h3>Total Checked: {{ total_checked }}</h4>
+{% comment %} <table border="1" cellpadding="10" width="100%"> {% endcomment %}
+<table class="student-table">
+<tr>
+    <th>Reg No</th>
+    <th>Student</th>
+    <th>Department</th>
+    <th>Year</th>
+    <th>Semester</th>
+    <th>Assignment</th>
+    <th>Marks</th>
+    <th>Remarks</th>
+    <th>Question</th>
+    <th>Answer</th>
+</tr>
+
+{% for s in checked %}
+
+<tr>
+
+    <td>{{ s.student.regno }}</td>
+    <td>{{ s.student.name }}</td>
+    <td>{{ s.student.department }}</td>
+    <td>{{ s.assignment.year }}</td>
+    <td>{{ s.student.semester }}</td>
+    <td>{{ s.assignment.title }}</td>
+    <td>{{ s.marks }}</td>
+    <td>{{ s.remarks }}</td>
+{% comment %} 
+    <td><a href="{{ s.assignment.file.url }}" target="_blank">View</a></td>
+    <td><a href="{{ s.file.url }}" target="_blank">View</a></td> {% endcomment %}
+    <td>
+{% if s.assignment.file %}
+    <a href="{{ s.assignment.file.url }}" target="_blank">View</a>
+{% else %}
+    No File
+{% endif %}
+</td>
+
+<td>
+{% if s.file %}
+    <a href="{{ s.file.url }}" target="_blank">View</a>
+{% else %}
+    No File
+{% endif %}
+</td>
+</tr>
+
+{% empty %}
+<tr>
+    <td colspan="9">No checked assignments</td>
+</tr>
+{% endfor %}
+
+</table>
+
+
+
+<h3>Unchecked Assignments</h3>
+<h3>Total Unchecked: {{ total_unchecked }}</h4>
+{% comment %} <table border="1" cellpadding="10" width="100%"> {% endcomment %}
+<table class="student-table">
+<tr>
+    <th>Reg No</th>
+    <th>Student</th>
+    <th>Department</th>
+    <th>Year</th>
+    <th>Semester</th>
+    <th>Assignment</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Action</th>
+</tr>
+
+{% for s in unchecked %}
+
+<tr>
+    <td>{{ s.student.regno }}</td>
+    <td>{{ s.student.name }}</td>
+    <td>{{ s.student.department }}</td>
+    <td>{{ s.assignment.year }}</td>
+    <td>{{ s.student.semester }}</td>
+    <td>{{ s.assignment.title }}</td>
+
+    <td>
+{% if s.assignment.file %}
+    <a href="{{ s.assignment.file.url }}" target="_blank">View</a>
+{% else %}
+    No File
+{% endif %}
+</td>
+
+<td>
+{% if s.file %}
+    <a href="{{ s.file.url }}" target="_blank">View </a>
+{% else %}
+    No File Uploaded
+{% endif %}
+</td>
+
+    <td><a href="/mark/{{ s.id }}/">Mark</a></td>
+</tr>
+
+{% empty %}
+<tr>
+    <td colspan="8">No unchecked assignments</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/teacher-dashboard/" class="back-btn">Back</a>
+
+{% endblock %}

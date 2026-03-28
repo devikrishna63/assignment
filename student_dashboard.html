@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<div class="content">
+<h2>🎓 Student Dashboard</h2>
+<div class="dash">
+<p>👋 Welcome  {{ student.name }}</p>
+</div>
+<div class="links-wrapper">
+<a href="/student-assignments/">📝 My Assignments</a>
+
+<a href="/student-profile/">👤 My Profile</a>
+</div>
+
+<a href="/logout/" class="logout-btn">Logout</a>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'app.css' %}">
+</head>
+
+<h2>📚 My Assignments</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-msg">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<h3 class="total-count">Total Assignments : {{ total }}</h3>
+
+<h3 class="section-title">✅ Submitted Assignments</h3>
+<div class="submitted-grid"> 
+{% for s in submitted %}
+
+<div class="card">
+    <h4>{{ s.assignment.title }}</h4>
+    <p>{{ s.assignment.description }}</p>
+    <p><b>Marks :</b> {{ s.marks|default:"Not Updated" }}</p>
+    <br>
+    {% if s.assignment.file %}
+        <a href="{{ s.assignment.file.url }}" target="_blank" style="text-decoration:underline;">👁 View Question  </a>
+         &nbsp;&nbsp;
+        <a href="{{ s.assignment.file.url }}" download class="btn-download" style="text-decoration:underline;">📥 Download Question </a>
+    {% else %}
+        No Question |
+    {% endif %}
+    <div style="margin-top:8px;">
+    {% if s.file %}
+        <a href="{{ s.file.url }}" target="_blank" style="text-decoration:underline;margin-top:5px;">
+            View Answer
+        </a>
+    {% else %}
+        No Answer Uploaded
+    {% endif %}
+    </div>
+</div>
+
+{% empty %}
+<div class="card">
+    No submitted assignments
+</div>
+{% endfor %}
+</div>
+<h3 class="section-title">❌ Unsubmitted Assignments</h3>
+<div class="unsubmitted-grid">
+{% for a in unsubmitted %}
+
+<div class="card">
+
+    <h4><b>Subject: </b>{{ a.title }}</h4>
+    <p>{{ a.description }}</p>
+
+    <p><b>Last Date :</b> {{ a.end_date }}</p>
+
+    <br>
+
+    {% if a.file %}
+        <a href="{{ a.file.url }}" target="_blank" style="text-decoration:underline;">👁 View Question </a>
+         &nbsp;&nbsp;
+        <a href="{{ a.file.url }}" download class="btn-download" style="text-decoration:underline;">📥 Download Question </a>
+    {% else %}
+        No Question File |
+    {% endif %}
+
+    <div class="submit-btn">
+    {% if today <= a.end_date %}
+        <a href="{% url 'submit_assignment' a.id %}" style="text-decoration:underline;">Submit Assignment</a>
+    {% else %}
+        <span class="deadline-over">Deadline Over</span>
+    {% endif %}
+    </div>
+
+</div>
+
+{% empty %}
+<div class="card">
+    No pending assignments
+</div>
+{% endfor %}
+
+</div> 
+<a href="/student-dashboard/" class="back-btn">Back</a>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<div class="content">
+<h2>👩‍🏫 Teacher Dashboard</h2>
+<div class="dash">
+<p>👋 Welcome  {{ teacher.name }}</p>
+</div>
+
+<div class="links-wrapper">
+
+<a href="/view-students/">👨‍🎓 View Enrolled Students</a>
+
+<a href="/teacher-assignments/">📚 Manage Assignments</a>
+
+<a href="/upload-assignment/">⬆️ Upload New Assignment</a>
+
+<a href="/submission-summary/">📄 Submission Summary</a>
+
+<a href="/view-submissions/">📥 Checked/Unchecked Assignments</a>
+
+<a href="/teacher-profile/">👤 My Profile</a>
+    
+
+</div>
+
+
+<a href="/logout/" class="logout-btn">Logout</a>
+</div>
+{% endblock %}

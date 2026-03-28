@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<div class="register-container">
+<div class="register-box">
+
+<h2>Student Registration</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Reg No</label>
+            <input type="text" name="regno" required>
+
+            <label>Name</label>
+            <input type="text" name="name" required>
+
+            <label>Gender</label>
+            <select name="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label>Department</label>
+            <select name="department">
+                <option value="">Select Department</option>
+                <option value="Tamil">Tamil</option>
+                <option value="English">English</option>
+                <option value="Commerce">Commerce</option>
+                <option value="History">History</option>
+                <option value="Economics">Economics</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Maths">Maths</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Zoology">Zoology</option>
+                <option value="Botany">Botany</option>
+                <option value="BCA">BCA</option>
+            </select>
+
+            <label>Year</label>
+            <select name="year">
+                <option value="">Select Year</option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+            </select>
+
+            <label>Semester</label>
+            <select name="semester">
+                <option value="">Select Sem</option>
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 2">Semester 2</option>
+                <option value="Semester 3">Semester 3</option>
+                <option value="Semester 4">Semester 4</option>
+                <option value="Semester 5">Semester 5</option>
+                <option value="Semester 6">Semester 6</option>
+            </select>
+
+            <label>Phone No</label>
+            <input type="text" name="phone">
+
+            <label>Email</label>
+            <input type="email" name="email">
+
+            <label>Address</label>
+            <textarea name="address"></textarea>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="back-link">
+            <a href="/student-login/">Back to Login</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

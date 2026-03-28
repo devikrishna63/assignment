@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+
+<div class="profile-card">
+<h2>👤 Welcome to Profile</h2>
+
+<p>Emp ID : {{ teacher.empid }}</p>
+<p>Name : {{ teacher.name }}</p>
+<p>Gender : {{ teacher.gender }}</p>
+<p>Department : {{ teacher.department }}</p>
+<p>Email : {{ teacher.email }}</p>
+<p>Phone : {{ teacher.phone }}</p>
+<p>Address : {{ teacher.address }}</p>
+
+{% if success %}
+<p class="success-msg">Profile Updated Successfully</p>
+{% endif %}
+
+{% if err %}
+<p class="error-msg">{{ err }}</p>
+{% endif %}
+<hr>
+
+{% if not edit and not pwd %}
+<a href="/teacher-profile/?edit=1">Edit Profile</a>
+{% endif %}
+
+{% if edit %}
+
+<form method="POST">
+{% csrf_token %}
+<label>Name</label>
+<input name="name" value="{{ teacher.name }}"><br>
+
+<label>Gender</label>
+<select name="gender">
+<option value="">Select Gender</option>
+<option value="Male" {% if teacher.gender == "Male" %}selected{% endif %}>Male</option>
+<option value="Female" {% if teacher.gender == "Female" %}selected{% endif %}>Female</option>
+</select><br>
+
+<label>Department</label>
+<select name="department">
+    <option value="">Select Department </option>
+    <option value="Tamil" {% if teacher.department == "Tamil" %}selected{% endif %}>Tamil</option>
+    <option value="English" {% if teacher.department == "English" %}selected{% endif %}>English</option>
+    <option value="Commerce" {% if teacher.department == "Commerce" %}selected{% endif %}>Commerce</option>
+    <option value="History" {% if teacher.department == "History" %}selected{% endif %}>History</option>
+    <option value="Economics" {% if teacher.department == "Economics" %}selected{% endif %}>Economics</option>
+    <option value="Computer Science" {% if teacher.department == "Computer Science" %}selected{% endif %}>Computer Science</option>
+    <option value="Maths" {% if teacher.department == "Maths" %}selected{% endif %}>Maths</option>
+    <option value="Physics" {% if teacher.department == "Physics" %}selected{% endif %}>Physics</option>
+    <option value="Chemistry" {% if teacher.department == "Chemistry" %}selected{% endif %}>Chemistry</option>
+    <option value="Zoology" {% if teacher.department == "Zoology" %}selected{% endif %}>Zoology</option>
+    <option value="Botany" {% if teacher.department == "Botany" %}selected{% endif %}>Botany</option>
+    <option value="BCA" {% if teacher.department == "BCA" %}selected{% endif %}>BCA</option>
+</select><br>
+
+<label>Phone no</label>
+<input name="phone" value="{{ teacher.phone }}"><br>
+
+<label>Email</label>
+<input name="email" value="{{ teacher.email }}"><br>
+
+<label>Address</label>
+
+<textarea name="address">{{ teacher.address }}</textarea><br>
+
+<button>Save Profile</button>
+
+</form>
+
+<br>
+<a href="/teacher-profile/?pwd=1">Change Password</a>
+
+{% endif %}
+
+{% if pwd %}
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="password" name="oldpass" placeholder="Old password"><br>
+<input type="password" name="newpass" placeholder="New password"><br>
+<input type="password" name="confirmpass" placeholder="Confirm"><br>
+
+<button name="change_password">Change Password</button>
+
+</form>
+
+{% endif %}
+
+<br>
+<a href="/teacher-dashboard/" class="back-btn"> Back to Dashboard</a>
+
+</div>
+{% endblock %}

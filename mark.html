@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+
+<div class="mark-container">
+
+    <h2>Mark Assignment</h2>
+
+    <p><b>Student:</b> {{ sub.student.name }}</p><br>
+    <p><b>Assignment:</b> {{ sub.assignment.title }}</p><br>
+
+    <p>
+        <a href="{{ sub.assignment.file.url }}" target="_blank">View Question</a> |
+        <a href="{{ sub.file.url }}" target="_blank">View Answer</a>
+    </p><br>
+
+    <hr><br>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Marks:</label>
+        <input type="number" name="marks" value="{{ sub.marks }}" required>
+
+        <br><br>
+
+        <label>Remarks:</label>
+        <textarea name="remarks">{{ sub.remarks }}</textarea>
+
+        <br><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br>
+    <a href="/view-submissions/" class="back-btn">Back</a>
+
+</div>
+
+{% endblock %}

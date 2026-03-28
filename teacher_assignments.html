@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assignment.css' %}">
+</head>
+<h2>Teacher Assignments</h2>
+<div class="assignment-container">
+{% for a in assignments %}
+
+<div class="card">
+
+<h3>{{ a.title }}</h3>
+
+<p>{{ a.description }}</p>
+
+<p><b>Department:</b> {{ a.department }}</p>
+<p><b>Year:</b>
+{% if a.year == 1 %} First Year
+{% elif a.year == 2 %} Second Year
+{% elif a.year == 3 %} Third Year
+{% else %} -
+{% endif %}
+</p>
+<p><b>Semester:</b> {{ a.semester }}
+</p>
+<p><b>Start : </b>{{ a.start_date }}</p>
+<p><b>End : </b>{{ a.end_date }}</p>
+</div>
+
+{% empty %}
+No assignments uploaded
+
+{% endfor %}
+</div>
+<a href="/teacher-dashboard/" class="back-btn">Back</a>
+{% endblock %}

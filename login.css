@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#f4f6fb;
+}
+
+/* Card box */
+.login-box {
+    background: white;
+    padding: 40px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+    margin-bottom: 15px;
+    color: #1e3a8a;
+}
+
+/* Error message */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    /* margin-left: 10px; */
+}
+
+.login-box button:hover {
+    background: #1e40af;
+}
+
+/* Register text */
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-box a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+/* Center page */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Card */
+.register-box {
+    background: white;
+    padding: 40px;
+    width: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+/*Reg*/
+/* Heading */
+.register-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1e3a8a;
+}
+
+/* Labels */
+.register-box label {
+    font-weight: 500;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.register-box input,
+.register-box select,
+.register-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Textarea size */
+.register-box textarea {
+    resize: none;
+    height: 70px;
+}
+
+/* Button */
+.register-box button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.register-box button:hover {
+    background: #1e40af;
+}
+
+/* Back link */
+.back-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+.success-msg{
+background:#dcfce7;
+color:#166534;
+padding:10px;
+border-radius:6px;
+margin-bottom:15px;
+text-align:center;
+}
+
+.error-msg{
+background:#fee2e2;
+color:#991b1b;
+padding:10px;
+border-radius:6px;
+margin-bottom:15px;
+text-align:center;
+}

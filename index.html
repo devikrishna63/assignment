@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+{% endblock %}
+{% block content %}
+<div class="home">
+
+    <div class="content-box">
+        <h1>Welcome to
+            College Assignmate-UG</h1>
+
+        <p class="subtitle">
+            Simplifying Assignment Management & Student Submission
+        </p>
+
+        <div class="features">
+            <span>📚 Track Assignment</span>
+            <span>📤 Update Submission</span>
+            <span>✅ Manage Status</span>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
